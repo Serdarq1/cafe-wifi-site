@@ -3,9 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
-import os
-print((f'Path: {os.path.abspath("cafes.db")}'))
-print(f'Path: {os.path.exists("cafes.db")}' )
 
 app = Flask(__name__)
 
