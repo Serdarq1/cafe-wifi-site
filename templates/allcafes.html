@@ -1,0 +1,47 @@
+{% include 'base.html' %}
+
+{% block content %}
+<div class="text-bold/6 font-semibold text-white text-xl text-center mt-40">
+    <h2 class="">List of All Cafes</h2>
+    <p class="text-sm/6 font-thin text-gray-400">Is your favourite cafe missing? Add it!</p>
+</div>
+<ul role="list" class="divide-y divide-white/5 mt-20 bg-gray-900">
+    {% for cafe in cafe_list %}
+  <li class="flex justify-between gap-x-6 py-5 ml-40 mr-40">
+    <div class="flex min-w-0 gap-x-4">
+        <img src="{{cafe.img_url}}"  class="size-12 flex-none rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"/>
+        <div class="min-w-0 flex-auto">
+        <p class="text-sm/6 font-semibold text-white"> {{cafe.name}} </p>
+        <p class="text-sm/6 font-semibold text-gray-300">Seat Count: {{cafe.seats}}</p>
+        <p class="text-sm/6 font-semibold text-gray-200">Coffee Price: {{cafe.coffee_price}}</p>
+        <a href="{{cafe.map_url}}" class="mt-1 truncate text-xs/5 text-gray-400">Location</a>
+        <p>
+            <a class="text-red-800" href="{{url_for('delete_cafe', cafe_id=cafe.id) }}">Delete</a>
+        </p>
+      </div>
+    </div>
+    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+        {% if cafe.has_sockets %}
+            <p class="text-sm/6 font-semibold text-green-300"> Sockets: ✅ </p>
+        {% else %}
+            <p class="text-sm/6 font-semibold text-red-300"> Sockets: ❌ </p>
+        {% endif %}
+
+        {% if cafe.has_toilet %}
+            <p class="text-sm/6 font-semibold text-green-300"> Toilets: ✅ </p>
+        {% else %}
+            <p class="text-sm/6 font-semibold text-red-300"> Toilets: ❌ </p>
+        {% endif %}
+
+        {% if cafe.has_wifi %}
+            <p class="text-sm/6 font-semibold text-green-300"> WIFI: ✅ </p>
+        {% else %}
+            <p class="text-sm/6 font-semibold text-red-300"> WIFI: ❌ </p>
+        {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+
+</ul>
+
+{% endblock %}

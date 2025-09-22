@@ -1,0 +1,167 @@
+{% include 'base.html' %}
+
+<form action="{{url_for('add_cafe')}}", method="post">
+    <div class="isolate bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
+  <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+    <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-1/2 -z-10 aspect-1155/678 w-144.5 max-w-none -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-40rem)] sm:w-288.75"></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center mb-20">
+    <h2 class="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">☕️ Add Your Favourite Cafe ☕️</h2>
+    <p class="mt-2 text-lg/8 text-gray-400">Add a cafe here to recommend other people!</p>
+  </div>
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div>
+        <label for="cafe-name" class="block text-sm/6 font-semibold text-white">Cafe Name</label>
+        <div class="mt-2.5">
+          <input id="cafe-name" type="text" name="cafe-name" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+        </div>
+      </div>
+      <div>
+        <label for="img-url" class="block text-sm/6 font-semibold text-white">Cafe Image URL</label>
+        <div class="mt-2.5">
+          <input id="img-url" type="text" name="img-url" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+        </div>
+      </div>
+
+         <div>
+        <label for="seats" class="block text-sm/6 font-semibold text-white">Seats</label>
+        <div class="mt-2.5">
+          <input id="seats" type="number" name="seats" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+        </div>
+      </div>
+      <div>
+        <label for="map-url" class="block text-sm/6 font-semibold text-white">Cafe Map URL</label>
+        <div class="mt-2.5">
+          <input id="map-url" type="text" name="map-url" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+        </div>
+      </div>
+    </div>
+
+      <div class="mt-2">
+        <label for="location" class="block text-sm/6 font-semibold text-white">Location</label>
+        <div class="mt-2.5">
+          <input id="location" type="text" name="location" class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500" />
+        </div>
+      </div>
+
+<div class="flex justify-between mt-5 text-white">
+  <div class="w-full mr-5">
+      <label for="select" class="block text-sm/6 font-medium text-white">Has Toilets:</label>
+<select id="select" name="has-toilet" value="4" class="border p-2 rounded-md bg-indigo-400 mt-2 block">
+  <button type="button" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white/5 py-1.5 pr-2 pl-3 text-left text-white outline-1 -outline-offset-1 outline-white/10 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 sm:text-sm/6">
+    <selectedcontent class="aria-disabled col-start-1 row-start-1 flex items-center gap-3 pr-6">
+      <span class="block truncate aria-disabled">Select a value</span>
+    </selectedcontent>
+  </button>
+
+  <options anchor="bottom start" popover class="max-h-56 w-(--button-width) overflow-auto rounded-md bg-gray-800 py-1 text-base outline-1 -outline-offset-1 outline-white/10 [--anchor-gap:--spacing(1)] data-leave:transition data-leave:transition-discrete data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm">
+    <option value="1" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="text-white ml-3 block truncate font-normal group-aria-selected/option:font-semibold">Yes</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+    <option value="0" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">No</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+     </options>
+</select>
+  </div>
+
+<div class="w-full">
+    <label for="select" class="block text-sm/6 font-medium text-white">Has Wifi:</label>
+<select id="select" name="has-wifi" value="4" class="mt-2 block rounded-md bg-indigo-400 p-2 border">
+  <button type="button" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white/5 py-1.5 pr-2 pl-3 text-left text-white outline-1 -outline-offset-1 outline-white/10 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 sm:text-sm/6">
+    <selectedcontent class="aria-disabled col-start-1 row-start-1 flex items-center gap-3 pr-6">
+      <span class="block truncate aria-disabled">Select a value</span>
+    </selectedcontent>
+  </button>
+
+  <options anchor="bottom start" popover class="max-h-56 w-(--button-width) overflow-auto rounded-md bg-gray-800 py-1 text-base outline-1 -outline-offset-1 outline-white/10 [--anchor-gap:--spacing(1)] data-leave:transition data-leave:transition-discrete data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm">
+    <option value="1" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">Yes</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+    <option value="0" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">No</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+     </options>
+</select>
+</div>
+</div>
+<div class="flex justify-between mt-5">
+  <div class="w-full mr-5 text-white">
+      <label for="select" class="block text-sm/6 font-medium text-white">Has Sockets:</label>
+<select id="select" name="has-sockets" value="4" class="mt-2 block rounded-md bg-indigo-400 p-2 border">
+  <button type="button" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white/5 py-1.5 pr-2 pl-3 text-left text-white outline-1 -outline-offset-1 outline-white/10 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 sm:text-sm/6">
+    <selectedcontent class="aria-disabled col-start-1 row-start-1 flex items-center gap-3 pr-6">
+      <span class="block truncate aria-disabled">Select a value</span>
+    </selectedcontent>
+  </button>
+
+  <options anchor="bottom start" popover class="max-h-56 w-(--button-width) overflow-auto rounded-md bg-gray-800 py-1 text-base outline-1 -outline-offset-1 outline-white/10 [--anchor-gap:--spacing(1)] data-leave:transition data-leave:transition-discrete data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm">
+    <option value="1" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">Yes</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+    <option value="0" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">No</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+     </options>
+</select>
+  </div>
+
+<div class="w-full text-white">
+    <label for="select" class="block text-sm/6 font-medium text-white">Can Take Calls:</label>
+<select id="select" name="can-take-calls" value="4" class="mt-2 block rounded-md bg-indigo-400 p-2 border">
+  <button type="button" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white/5 py-1.5 pr-2 pl-3 text-left text-white outline-1 -outline-offset-1 outline-white/10 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 sm:text-sm/6">
+    <selectedcontent class="aria-disabled col-start-1 row-start-1 flex items-center gap-3 pr-6">
+      <span class="block truncate aria-disabled">Select a value</span>
+    </selectedcontent>
+  </button>
+
+  <options anchor="bottom start" popover class="max-h-56 w-(--button-width) overflow-auto rounded-md bg-gray-800 py-1 text-base outline-1 -outline-offset-1 outline-white/10 [--anchor-gap:--spacing(1)] data-leave:transition data-leave:transition-discrete data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm">
+    <option value="1" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">Yes</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+    <option value="0" class="group/option relative block cursor-default py-2 pr-9 pl-3 text-white select-none focus:bg-indigo-500 focus:text-white focus:outline-hidden">
+      <div class="flex items-center">
+        <span class="ml-3 block truncate font-normal group-aria-selected/option:font-semibold">No</span>
+      </div>
+      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-400 group-not-aria-selected/option:hidden group-focus/option:text-white in-[selectedcontent]:hidden">
+      </span>
+    </option>
+     </options>
+</select>
+</div>
+</div>
+
+    <div class="mt-10 w-full">
+      <button type="submit" class="block w-full rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">Add Cafe</button>
+    </div>
+
+</div>
+</form>
