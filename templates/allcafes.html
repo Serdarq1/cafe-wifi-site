@@ -13,14 +13,13 @@
         <div class="min-w-0 flex-auto">
         <p class="text-sm/6 font-semibold text-white"> {{cafe.name}} </p>
         <p class="text-sm/6 font-semibold text-gray-300">Seat Count: {{cafe.seats}}</p>
-        <p class="text-sm/6 font-semibold text-gray-200">Coffee Price: {{cafe.coffee_price}}</p>
         <a href="{{cafe.map_url}}" class="mt-1 truncate text-xs/5 text-gray-400">Location</a>
         <p>
             <a class="text-red-800" href="{{url_for('delete_cafe', cafe_id=cafe.id) }}">Delete</a>
         </p>
       </div>
     </div>
-    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+    <div class="shrink-0 sm:flex sm:flex-col sm:items-end">
         {% if cafe.has_sockets %}
             <p class="text-sm/6 font-semibold text-green-300"> Sockets: ✅ </p>
         {% else %}
