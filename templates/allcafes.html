@@ -5,9 +5,10 @@
     <h2 class="">List of All Cafes</h2>
     <p class="text-sm/6 font-thin text-gray-400">Is your favourite cafe missing? Add it!</p>
 </div>
+
 <ul role="list" class="divide-y divide-white/5 mt-20 bg-gray-900">
     {% for cafe in cafe_list %}
-  <li class="flex justify-between gap-x-6 py-5 ml-40 mr-40">
+  <li class="flex justify-between gap-x-6 py-5 w-full container">
     <div class="flex min-w-0 gap-x-4">
         <img src="{{cafe.img_url}}"  class="size-12 flex-none rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"/>
         <div class="min-w-0 flex-auto">
