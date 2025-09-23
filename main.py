@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
+import os
 
 app = Flask(__name__)
 
@@ -23,8 +24,19 @@ def load_user(user_id):
 class Base(DeclarativeBase):
     pass
 
+def get_db_uri():
+    uri = os.getenv("DATABASE_URL")
+    if uri:
+        # Render may provide postgres://, but SQLAlchemy expects postgresql://
+        if uri.startswith("postgres://"):
+            uri = uri.replace("postgres://", "postgresql://", 1)
+        return uri
+    # local dev fallback
+    return "sqlite:///cafes.db"
+
+
 # Connect Databse
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////var/data/cafes.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = get_db_uri()
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
